@@ -1,0 +1,22 @@
+footer {
+    background-color: #696969;
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: #9ed49d;
+    text-decoration: none;
+}
+
+.btn-submit {
+    background-color: #6a9deb;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #345794;
+}
