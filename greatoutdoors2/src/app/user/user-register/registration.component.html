@@ -1,0 +1,88 @@
+<form (ngSubmit) = 'registeringUser()' #userRegistrationform = "ngForm" class="goforms" id="user-registration-form">
+    <div class="pannel-heading heading-green">
+      <div class="pannel-title">
+        <h4>New User Registration</h4>
+      </div>
+  
+    </div>
+    <br><br>
+  
+      <div class="form-group" [class.has-error]="userRegisterId.invalid && userRegisterId.touched">
+        <label for="user-regis-id">User Id</label>
+        <input type="text" class="form-control" id="user-register-id" name="userRegisid" placeholder="Enter User Id"
+          ngModel #userRegisterId="ngModel" required [(ngModel)]='newUser.userId'>
+        <span class="help-block" style="color:red" *ngIf="userRegisterId.invalid && userRegisterId.touched">User Id is required</span>
+      </div>
+      <div class="form-group" [class.has-error]="userRegisName.invalid && userRegisName.touched">
+        <label for="user-reg-name">User Name</label>
+        <input type="text" class="form-control" id="user-reg-name" name="userregname" placeholder="Enter User name"
+          required ngModel #userRegisName = "ngModel" [(ngModel)]='newUser.userName'>
+          <span class="help-block" style="color:red" *ngIf="userRegisName.invalid && userRegisName.touched">User Name is required</span>
+      </div>
+
+      <div class="form-group" [class.has-error] = "userRegisMail.invalid && userRegisMail.touched">
+        <label for="user-reg-mail">Email</label>
+        <input type="text" class="form-control" id="user-reg-mail" pattern="^[a-z0-9_.]+@[a-z0-9]+\.[a-z0-9.]+$" name="userregmail" placeholder="Enter e-mail"
+          required ngModel #userRegisMail = "ngModel" [(ngModel)]='newUser.userMail'>
+          <span class="help-block" style="color:red" *ngIf="userRegisMail.errors?.required && userRegisMail.touched">Email is required</span>
+          <span class="help-block" style="color:red" *ngIf="userRegisMail.errors?.pattern && userRegisMail.touched">Email is invalid</span>
+        </div>
+
+        <div class="form-group" [class.has-error] = "userRegisPhone.invalid && userRegisPhone.touched">
+            <label for="user-reg-phone">Phone</label>
+            <input type="text" class="form-control" id="user-reg-phone" pattern="^\d{10}$" name="phone" placeholder="Enter phone number"
+              required ngModel #userRegisPhone = "ngModel" [(ngModel)]='newUser.userNumber'>
+              <span class="help-block" style="color:red" *ngIf="userRegisPhone.errors?.required && userRegisPhone.touched">Phone number is required</span>
+              <span class="help-block" style="color:red" *ngIf="userRegisPhone.errors?.pattern && userRegisPhone.touched">Phone number is invalid</span>
+            </div>
+
+
+        <div class="form-group" [class.has-error] = "userRegisPass.invalid && userRegisPass.touched">
+            <label for="user-reg-pass">Password</label>
+            <input type="password" class="form-control" pattern="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$" id="user-reg-pass" name="userregpass" placeholder="Enter password"
+              required ngModel #userRegisPass="ngModel" [(ngModel)]='newUser.userPassword'>
+              <span class="help-block" style="color:red" *ngIf="userRegisPass.errors?.required && userRegisPass.touched">Password is required</span>
+              <span class="help-block" style="color:red" *ngIf="userRegisPass.errors?.pattern && userRegisPass.touched">Password must contains 
+                <ul>
+                    <li>A capital letter</li>
+                    <li>A small letter</li>
+                    <li>A special character</li>
+                    <li>A number</li>
+                    <li>Must be atleast 8 character</li>
+                </ul>
+            </span>
+             
+          </div>
+    
+          <div class="form-group" [class.has-error] = "userRegConfPass.invalid && userRegConfPass.touched">
+            <label for="prod-mast-conf-psw">Confirm Password</label>
+            <input type="password" class="form-control"  id="prod-mast-conf-psw" name="confpsw" placeholder="Enter confirm password"
+              required  appConfirmEqualValidator="psw" ngModel #userRegConfPass="ngModel">
+              <span class="help-block" style="color:red" *ngIf="userRegConfPass.errors?.required && userRegConfPass.touched">Confirm Password is required</span>
+              <span class="help-block" style="color:red" *ngIf="userRegConfPass.errors?.notEqual && userRegConfPass.touched && !userRegConfPass.errors?.required">Confirm Password does not matches with Password</span>
+              
+          </div>
+    
+          <div class="form-group" [class.has-error]="userRegCategory.touched && userRegCategory.invalid">
+            <label for="user-category">User Category</label>
+            <select name="userCategory" class="form-control" id="user-category" required  #userRegCategory=ngModel [(ngModel)]='newUser.userCategory'>
+                <option value="2">Sales Representative</option>
+                <option value="3">Retailer</option>
+            </select>
+            <span class="help-block" style="color:red" *ngIf="userRegCategory.invalid && userRegCategory.touched">User Category is required</span>
+          </div>
+      
+   
+  
+      <div class="form-check" [class.has-error]="userRegCheck.invalid && userRegCheck.touched">
+        <input type="checkbox" class="form-check-input" name="chckbox" id="user-reg-check" required ngModel #userRegCheck="ngModel">
+        <label class="form-check-label" for="user-reg-check">I confirm all the details entered are correct</label>
+        <span class="help-block" style="color:red" *ngIf="userRegCheck.errors?.required && userRegCheck.touched">Check the confirmation box</span>
+      </div>
+      
+      <div class="pannel-footer bg-grey">
+        <button type="submit" class="btn btn-default " [disabled] = "userRegistrationform.invalid">Register</button>
+        
+      </div>
+      
+  </form>

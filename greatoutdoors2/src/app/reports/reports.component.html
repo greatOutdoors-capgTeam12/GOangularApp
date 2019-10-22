@@ -1,0 +1,152 @@
+<!-- Bootstrap NavBar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-success">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" routerLink="reports" style="align-self: center;">
+        <span class="menu-collapsed" style="font-size: 0.8em"> Report Generating System</span>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="nav-item dropdown d-sm-block d-md-none">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <a class="nav-link" routerLink="deliveryTimeReport">
+                    <span class="fa fa-truck" aria-hidden="true"></span> Delivery Time Report
+                </a>
+            </div>
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <a class="nav-link" routerLink="shelfTimeReport">
+                    <span class="fa fa-random" aria-hidden="true"></span> Shelf Time Report
+                </a>
+            </div>
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <a class="nav-link" routerLink="salesReport">
+                    <span class="fa fa-user" aria-hidden="true"></span> Sales Rep Report
+                </a>
+            </div>
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <a class="nav-link" routerLink="retailerReport">
+                    <span class="fa fa-users" aria-hidden="true"></span> Retailer Report
+                </a>
+            </div>
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <a class="nav-link" routerLink="revenueReport">
+                    <span class="fa fa-usd" aria-hidden="true"></span> Revenue Report
+                </a>
+            </div>
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <a class="nav-link" routerLink="growthReport">
+                    <span class="fa fa-line-chart" aria-hidden="true"></span> Growth Report
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- NavBar END -->
+<!-- Bootstrap row -->
+<div class="row" id="body-row">
+    <!-- Sidebar -->
+    <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+        <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+        <!-- Bootstrap List Group -->
+        <ul class="list-group">
+            <!-- Separator with title -->
+            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                <small><strong>TIME REPORTS</strong></small>
+            </li>
+            <!-- /END Separator -->
+            <!-- Menu with submenu -->
+            <div class="bg-menubg list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <a class="nav-link" routerLink="deliveryTimeReport">
+                        <span class="fa fa-truck" aria-hidden="true"></span> Delivery Time Report
+                    </a>
+                </div>
+            </div>
+            <div class="bg-menubg list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <a class="nav-link" routerLink="shelfTimeReport">
+                        <span class="fa fa-random" aria-hidden="true"></span> Shelf Time Report
+                    </a>
+                </div>
+            </div>
+            <!-- Separator with title -->
+            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                <small><strong>USER SALES REPORTS</strong></small>
+            </li>
+            <div class="bg-menubg list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <a class="nav-link" routerLink="salesReport">
+                        <span class="fa fa-user" aria-hidden="true"></span> Sales Rep Report
+                    </a>
+                </div>
+            </div>
+            <!-- /END Separator -->
+            <div class="bg-menubg list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <a class="nav-link" routerLink="retailerReport">
+                        <span class="fa fa-users" aria-hidden="true"></span> Retailer Report
+                    </a>
+                </div>
+            </div>
+            <!-- Separator without title -->
+            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                <small><strong>REPORTS</strong></small>
+            </li>
+            <!-- /END Separator -->
+            <div class="bg-menubg list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <a class="nav-link" routerLink="revenueReport">
+                        <b> &#8377;</b> Revenue Report
+                    </a>
+                </div>
+            </div>
+            <div class="bg-menubg list-group-item list-group-item-action d-flex align-items-center">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <a class="nav-link" routerLink="growthReport">
+                        <span class="fa fa-chart-line" aria-hidden="true"></span> Growth Report
+                    </a>
+                </div>
+            </div>
+        </ul>
+        <!-- List Group END-->
+    </div>
+    <!-- sidebar-container END -->
+    <!-- MAIN -->
+
+    <div class="col">
+        <!-- <h1>
+            Collapsing Menu
+            <small class="text-muted">Version 2.1</small>
+        </h1>
+        <div class="card">
+            <h4 class="card-header">Requirements</h4>
+            <div class="card-body">
+                <ul>
+                    <li>JQuery</li>
+                    <li>Bootstrap 4 beta-3</li>
+                </ul>
+            </div>
+        </div> -->
+
+        <!-- loader-->
+        <div *ngIf="showLoadingIndicator" id="overlay"></div>
+
+        <div *ngIf="showLoadingIndicator" class="lds-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!--loader end-->
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- Main Col END -->
+</div>
+<!-- body-row END -->

@@ -1,0 +1,51 @@
+<div class="searchnav">
+    <button *ngIf='loggedUser && user_role === 4' class="btn btn-default btn-info" id="add-prod-btn" routerLink='/Product/editcreateproduct/0'> <span class="fa fa-plus-square"></span> Add Product</button>
+    <button class="btn btn-default btn-info" id="add-filter-btn" (click)='filter()'><span class="fa fa-filter"></span>
+        Filter
+        Product</button>
+    <span class="fa fa-th view" title="small view" (click)='viewSmall()'></span>
+    <span class="fa fa-th-large view" title="large view" (click)='viewLarge()'></span>
+    <input type="text" placeholder="Search Product by name .." [(ngModel)]="searchTerm">
+</div>
+<div id="filterbar" class="container-fluid filternav fadeInDown" style="overflow: hidden; display : none;
+margin:0">
+    <div class="pannel pannel-primary">
+        <div class="row">
+            <div col>
+                <h6 style=" float : left ;margin:10px 10px; color : #336699">Product Brand :</h6><input type="text" [(ngModel)]="brandTerm" placeholder=" Enter Brand .." style="float:right; left: 10px; margin-left:10px">
+            </div>
+            <div col>
+                <h6 style=" float : left ;margin:10px 10px; color : #336699">Low Range :</h6> <input type="number" [(ngModel)]="lowpriceTerm" placeholder=" Enter Low Price .." style="float:right; left: 10px; margin-left:10px">
+            </div>
+            <div col>
+                <h6 style=" float : left; margin:10px 10px; color : #336699">High Range : </h6> <input type="number" [(ngModel)]="highpriceTerm" placeholder=" Enter High Price .." style="float:right; left: 10px; margin-left:10px">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <button id="next-btn" (click)='nextProduct()' style="display:none ;float:left; margin : 5px; background-color: #336699;" class="btn btn-default btn-info">Next
+        Product</button>
+    <br>
+</div>
+<app-displayproduct style="display: none;" id="product-display" [product]='productToDisplay'></app-displayproduct>
+<div id="product-catalog" class="container-fluid text-center ">
+    <div class="row justify-content-center">
+        <div class="card col-lg-4 col-md-4 col-sm-4 col-xs-4" *ngFor="let product of filteredProducts ">
+            <img [src]='product.photoPath' alt="Product_Name" style="width:100%" height="200px">
+            <div class="overlay-prod"><span *ngIf='loggedUser && (user_role === 3 || user_role === 2)' class="fas fa-heart" (click)="addToFav(product.prodid)" title="add to whishlist"></span>
+                <span *ngIf='loggedUser && (user_role === 3 || user_role === 2)' class="fas fa-cart-plus" title="add to cart"></span>
+                <span class="fas fa-eye" (click)="viewProduct(product.prodid)" title="view"></span>
+                <span *ngIf='loggedUser && user_role === 4' class="fas fa-trash" title="delete" (click)="deleteProduct(product.prodid)"></span>
+                <span *ngIf='loggedUser && user_role === 4' class="fas fa-pen" title="edit" (click)="editProduct(product.prodid)"></span>
+            </div>
+            <h3 class="pname">{{product.prodName}}</h3>
+            <p class="price">&#8377; {{product.prodPrice}}</p>
+            <p>{{product.prodBrand}} </p>
+            <p *ngIf="product.prodQty > 0" style="color:green">In Stock</p>
+            <p *ngIf="product.prodQty == 0" style="color:red">Out of Stock</p>
+            <p>Colour <span class="fas fa-palette" [ngStyle]="{'color' : product.prodColor}"></span></p>
+        </div>
+
+    </div>
+</div>

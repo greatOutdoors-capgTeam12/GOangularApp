@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+.label {
+    color: red;
+}
+
+.bg-grey {
+    background-color: #dbdbdb;
+}
+
+h2 {
+    color: #339933;
+    font-family: Montserrat, sans-serif;
+}
+
+.heading-green {
+
+    background-color: #55a555;
+    color:white;
+}
+
+.goforms{
+    margin:5% 20%;
+    padding :5%;
+    background-color:#dbdbdb;
+    border-radius: 5px;
+    width : 60%
+}
+
+.goforms .btn{
+    color:white;
+    background-color: #336699;
+    margin : 10px;
+    width : 250px;
+}
+
+.goforms .btn:hover{
+    color : white;
+    background-color: #052b69;
+}
+
+.pannel-heading, .pannel-footer{
+    border-radius:5px;
+    padding : 15px;
+}
+
+@media screen and (max-width: 600px) {
+    .goforms .btn{
+
+      float: none;
+      display: block;
+      text-align: left;
+      width: 90%;
+      margin: 5px;
+      padding: 5px;
+
+    }
+
+    .goforms
+    {
+        margin: 5%;
+        width : 90%;
+    }
+
+}

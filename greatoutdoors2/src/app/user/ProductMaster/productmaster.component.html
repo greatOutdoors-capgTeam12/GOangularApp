@@ -1,0 +1,76 @@
+<form #productmasterform = "ngForm"  (ngSubmit)="registerUser()" class="goforms" id="add-product-form">
+    <div class="pannel-heading heading-green">
+      <div class="pannel-title">
+        <h4>Product Master Registration</h4>
+      </div>
+  
+    </div>
+    <div class="pannel-body">
+  
+      <div class="form-group" [class.has-error]="prodmasterid.invalid && prodmasterid.touched">
+        <label for="prod-mast-id">Product Master Id</label>
+        <input type="text" class="form-control" id="prod-mast-id" name="prodmastid" placeholder="Enter product master Id"
+          [(ngModel)] = "newUser.userId" #prodmasterid="ngModel" required>
+        <span class="help-block" style="color:red" *ngIf="prodmasterid.invalid && prodmasterid.touched">Product Master Id is required</span>
+      </div>
+      <div class="form-group" [class.has-error]="addprodmastname.invalid && addprodmastname.touched">
+        <label for="prod-mast-name">Product Master Name</label>
+        <input type="text" class="form-control" id="prod-mast-name" name="prodmastname" placeholder="Enter product master name"
+          required [(ngModel)] = "newUser.userName" #addprodmastname = "ngModel">
+          <span class="help-block" style="color:red" *ngIf="addprodmastname.invalid && addprodmastname.touched">Product Master Name is required</span>
+      </div>
+
+      <div class="form-group" [class.has-error] = "prodmastphone.invalid && prodmastphone.touched">
+        <label for="prod-mast-phone">Phone</label>
+        <input type="text" class="form-control" id="prod-mast-phone" pattern="^\d{10}$" name="phone" placeholder="Enter phone number"
+          required [(ngModel)] = "newUser.userNumber" #prodmastphone = "ngModel">
+          <span class="help-block" style="color:red" *ngIf="prodmastphone.errors?.required && prodmastphone.touched">Phone number is required</span>
+          <span class="help-block" style="color:red" *ngIf="prodmastphone.errors?.pattern && prodmastphone.touched">Phone number is invalid</span>
+        </div>
+  
+      <div class="form-group" [class.has-error] = "prodmastemail.invalid && prodmastemail.touched">
+        <label for="prod-mast-email">Email</label>
+        <input type="text" class="form-control" id="prod-mast-email" pattern="^[a-z0-9_.]+@[a-z0-9]+\.[a-z0-9.]+$" name="email" placeholder="Enter email"
+          required [(ngModel)] = "newUser.userMail" #prodmastemail = "ngModel">
+          <span class="help-block" style="color:red" *ngIf="prodmastemail.errors?.required && prodmastemail.touched">Email is required</span>
+          <span class="help-block" style="color:red" *ngIf="prodmastemail.errors?.pattern && prodmastemail.touched">Email is invalid</span>
+        </div>
+      <div class="form-group" [class.has-error] = "prodmastpsw.invalid && prodmastpsw.touched">
+        <label for="prod-mast-psw">Password</label>
+        <input type="password" class="form-control" pattern="^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$" id="prod-mast-psw" name="psw" placeholder="Enter password"
+          required [(ngModel)] = "newUser.userPassword" #prodmastpsw="ngModel">
+          <span class="help-block" style="color:red" *ngIf="prodmastpsw.errors?.required && prodmastpsw.touched">Password is required</span>
+          <span class="help-block" style="color:red" *ngIf="prodmastpsw.errors?.pattern && prodmastpsw.touched">Password must contains 
+            <ul>
+                <li>A capital letter</li>
+                <li>A small letter</li>
+                <li>A special character</li>
+                <li>A number</li>
+                <li>Must be atleast 8 character</li>
+            </ul>
+        </span>
+         
+      </div>
+
+      <div class="form-group" [class.has-error] = "prodmastconfpsw.invalid && prodmastconfpsw.touched">
+        <label for="prod-mast-conf-psw">Password</label>
+        <input type="password" class="form-control"  id="prod-mast-conf-psw" name="confpsw" placeholder="Enter confirm password"
+          required  appConfirmEqualValidator="psw" ngModel #prodmastconfpsw="ngModel">
+          <span class="help-block" style="color:red" *ngIf="prodmastconfpsw.errors?.required && prodmastconfpsw.touched">Confirm Password is required</span>
+          <span class="help-block" style="color:red" *ngIf="prodmastconfpsw.errors?.notEqual && prodmastconfpsw.touched && !prodmastconfpsw.errors?.required">Confirm Password does not matches with Password</span>
+          
+      </div>
+      
+      
+  
+      <div class="form-check" [class.has-error]="addprodcheck.invalid && addprodcheck.touched">
+        <input type="checkbox" class="form-check-input" id="add-prod-check" required  name="prodMastCheck" ngModel #addprodcheck="ngModel">
+        <label class="form-check-label" for="add-prod-check">I confirm all the details entered are correct</label>
+        <span class="help-block" style="color:red" *ngIf="addprodcheck.errors?.required && addprodcheck.touched">Check the confirmation box</span>
+      </div>
+      <div class="pannel-footer bg-grey">
+        <button type="submit" class="btn btn-default " [disabled] = "productmasterform.invalid">Register</button>
+  
+      </div>
+    </div>
+  </form>

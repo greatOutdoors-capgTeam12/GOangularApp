@@ -1,0 +1,71 @@
+<!-- <form #addtocartform = "ngForm"  (ngSubmit) = addItem() class="goforms" id="add-to-cart-form">
+  <div class="pannel-heading heading-green">
+    <div class="pannel-title">
+      <h4>Add Item To Cart</h4>
+    </div>
+
+  </div>
+  <div class="pannel-body">
+      <div class="form-group" [class.has-error]="retid.invalid && retid.touched">
+          <label for="prod-mast-id">Retailer Id</label>
+          <input type="text" class="form-control" id="ret-id" name="retid" placeholder="Enter Retailer Id"
+            ngModel #retid="ngModel" required [(ngModel)]='addingItem.retid'>
+          <span class="help-block" style="color:red" *ngIf="retid.invalid && retid.touched">Retailer Id is required</span>
+        </div>
+
+    <div class="form-group" [class.has-error]="prodid.invalid && prodid.touched">
+      <label for="prod-mast-id">Product Id</label>
+      <input type="text" class="form-control" id="prod-mast-id" name="prodid" placeholder="Enter product Id"
+        ngModel #prodid="ngModel" required [(ngModel)]='addingItem.prodid'>
+      <span class="help-block" style="color:red" *ngIf="prodid.invalid && prodid.touched">Product Id is required</span>
+    </div>
+    <div class="form-group" [class.has-error]="addprodqty.invalid && addprodqty.touched">
+      <label for="prod-quantity">Product Quantity</label>
+      <input type="number" class="form-control" id="prod-mast-name" name="prodmastqty" placeholder="Enter product Quantity"
+        required ngModel #addprodqty = "ngModel" [(ngModel)]='addingItem.prodQty'>
+        <span class="help-block" style="color:red" *ngIf="addprodqty.invalid && addprodqty.touched">Product Quantity is required</span>
+    </div>
+    <div class="pannel-footer bg-grey">
+      <button type="submit" class="btn btn-default " [disabled] = "addtocartform.invalid">Add To Cart</button>
+
+    </div>
+  </div>
+</form>-->
+
+
+<form (ngSubmit)='addItem()' #addItemform = "ngForm" class="goforms" id="add-Item-form">
+    <div class="pannel-heading heading-green">
+        <div  class="text-center">
+          <h4>Add Item to Cart</h4>
+        </div>
+      </div>
+      <br>
+  <div class="pannel-body">
+
+    <div class="form-group" [class.has-error]="userId.invalid && userId.touched">
+      <label for="user-Id">User Id</label>
+      <input type="text" class="form-control" id="user-Id" name="userId" placeholder="Enter user Id"
+        ngModel #userId="ngModel" [(ngModel)]='addingItem.userId' required>
+      <span class="help-block" style="color:red" *ngIf="userId.invalid && userId.touched">User Id is required</span>
+    </div>
+
+    <div class="form-group" [class.has-error]="productId.invalid && productId.touched">
+      <label for="product-Id">Product Id</label>
+      <input type="text" class="form-control" id="product-Id" name="productid" placeholder="Enter product Id"
+        ngModel #productId="ngModel" [(ngModel)]='addingItem.productId' required>
+      <span class="help-block" style="color:red" *ngIf="productId.invalid && productId.touched">Product Id is required</span>
+    </div>
+
+    <div class="form-group" [class.has-error]="quantity.invalid && quantity.touched">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter quantity"
+          ngModel #quantity="ngModel" [(ngModel)]='addingItem.quantity' required>
+        <span class="help-block" style="color:red" *ngIf="quantity.invalid && quantity.touched">Quantity is required</span>
+      </div>
+  
+
+    <div class="pannel-footer bg-grey">
+      <button type="submit" class="btn btn-default " [disabled] = "addItemform.invalid">Add to Cart</button>
+    </div>
+  </div>
+</form>

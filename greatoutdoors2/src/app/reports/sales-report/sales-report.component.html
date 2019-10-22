@@ -1,0 +1,62 @@
+<div style="padding: 5%;">
+    <div class="row">
+        <div class="col card border-secondary">
+            <h3 class="card-header">Sales Representative Report</h3>
+            <form class="card-body" [formGroup]="salesReportForm" (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                    <div class="col" style="min-width: 250px;">
+                        <label for="user-id">User ID</label>
+                        <select class="form-control" formControlName="userId" required>
+                            <option *ngFor="let user of userIdList" [value]="user">{{user}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="set-bonus">Set Bonus</label>
+                        <input type="number" min="0" class="form-control text-center" formControlName="setBonus" required>
+                    </div>
+                    <div class="col">
+                        <label for="set-target">Set Target</label>
+                        <input type="number" min="0" class="form-control text-center" formControlName="setTarget" required>
+                    </div>
+                </div>
+                <div class="form-row" style="padding-top: 1%; padding-bottom: 1%;">
+                    <div class="col">
+                        <button class="btn btn-sm btn-info btn-block" type="submit" [disabled]="!salesReportForm.valid">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- End of Card -->
+
+    <!-- Delivery Time Report Table -->
+    <div class="row" style="padding-top: 2%;">
+        <div class="col card border-secondary">
+            <div class="table-responsive">
+                <table class="table table-hover" style="margin-bottom: 0%;">
+                    <thead>
+                        <tr>
+
+                            <th scope="col"> Target Sales </th>
+                            <th scope="col"> Target Status </th>
+                            <th scope="col"> Current Sales </th>
+                            <th scope="col"> Bonus </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tableItem of tableItems">
+
+                            <td>{{tableItem.targetSales}}</td>
+                            <td>{{tableItem.target}}</td>
+                            <td>{{tableItem.currentSales}}</td>
+                            <td>{{tableItem.bonus}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Container -->

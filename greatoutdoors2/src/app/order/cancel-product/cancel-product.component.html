@@ -1,0 +1,53 @@
+<form (ngSubmit)='getProductCancel()' #cancelproductfrom="ngForm" ngNativeValidate class="goforms" id="cancel-product-form" >
+    <div class="pannel-heading heading-green">
+      <div class="pannel-title">
+        <h4>Cancel Product</h4>
+      </div>
+  
+    </div>
+    <br><br>
+    <div class="pannel-body">
+  
+      <div class="form-group" [class.has-error]="userCancelProductUserId.invalid && userCancelProductUserId.touched">
+        <label for="user-cancel-prod-user-id">User Id</label>
+        <input type="text" class="form-control" id="user-cancel-prod-user-id" name="usercancelproduserid" placeholder="Enter User Id"
+          ngModel #userCancelProductUserId="ngModel" required [(ngModel)]="cancelProduct.userId">
+        <span class="help-block" style="color:red" *ngIf="userCancelProductUserId.invalid && userCancelProductUserId.touched">User Id is
+          required</span>
+      </div>
+      
+      <div class="form-group" [class.has-error]="CancelProductOrderId.invalid && CancelProductOrderId.touched">
+          <label for="cancel-prod-ord-id">Order Id</label>
+          <input type="text" class="form-control" id="cancel-prod-ord-id" name="cancelprodordid" placeholder="Enter Order Id"
+          ngModel #CancelProductOrderId="ngModel" required [(ngModel)]="cancelProduct.orderId"  >
+          <span class="help-block" style="color:red" *ngIf="CancelProductOrderId.invalid && CancelProductOrderId.touched">Order Id is
+            required</span>
+        </div>
+
+      <div class="form-group" [class.has-error]="cancelProductId.invalid && cancelProductId.touched">
+          <label for="cancel-prod-id">Product Id</label>
+          <input type="text" class="form-control" id="cancel-prod-id" name="cancelprodid" placeholder="Enter Product Id"
+          ngModel #cancelProductId="ngModel" required [(ngModel)]="cancelProduct.productId">
+          <span class="help-block" style="color:red" *ngIf="cancelProductId.invalid && cancelProductId.touched">Product Id is
+            required</span>
+        </div>
+      
+      <div class="form-group" [class.has-error] = "cancelProductQuantity.invalid && cancelProductQuantity.touched"> 
+          <label for="cancel-prod-qty">Product Quantity</label>
+          <input type="number" class="form-control"  placeholder="Enter Quantity" min="1" max="1000" step="1" name="qty"
+          ngModel #cancelProductQuantity="ngModel" id="cancel-prod-qty" required [(ngModel)]='cancelProduct.quantity'>
+            <span class="help-block" style="color:red" *ngIf="cancelProductQuantity.errors?.required  && cancelProductQuantity.touched">Quantatity is required</span>
+        </div>
+
+        <div class="form-check" [class.has-error]="cancelproductcheck.invalid && cancelproductcheck.touched">
+          <input type="checkbox" name="formcheck" class="form-check-input" id="cancel-product-check" required ngModel #cancelproductcheck="ngModel">
+          <label class="form-check-label" for="cancel-product-check">I confirm all the details entered are correct</label>
+          <span class="help-block" style="color:red" *ngIf="cancelproductcheck.errors?.required && cancelproductcheck.touched">Check the confirmation box</span>
+        </div>
+
+      <div class="pannel-footer bg-grey">
+        <button type="submit" class="btn btn-default " [disabled]="cancelproductfrom.invalid">Submit</button>
+  
+      </div>
+    </div>
+  </form>
