@@ -22,7 +22,7 @@ export class UserRegisterServiceModule {
             })
         };
 
-            return this.httpClient.post("http://localhost:9090/go/UserRegistrationServlet", {
+            return this.httpClient.post("http://localhost:9090/capgemini.go/User/registration", {
             "userId": newUser.userId,
             "userName": newUser.userName,
             "userMail": newUser.userMail,

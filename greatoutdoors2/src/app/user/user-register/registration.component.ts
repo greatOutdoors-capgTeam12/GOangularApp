@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
               progressBar: true,
             })
           this.userRegForm.reset();
-          this._router.navigate(['/Product/allproducts']);
+          this._router.navigate(['/login']);
         }
         else {
 
@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
               progressBar: true,
             })
           this.userRegForm.reset();
-          this._router.navigate(['/Admin/createproductmaster']);
+          this._router.navigate(['/Product/allproducts']);
 
         }
       },
@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
             progressBar: true,
           })
         this.userRegForm.reset();
-        this._router.navigate(['/Admin/createproductmaster']);
+        this._router.navigate(['/Product/allproducts']);
       }
     );
    

@@ -45,7 +45,7 @@ const routes: Routes = [
    canActivate : [ProductDetailsGuardService] },
    { path: 'login', component : LoginComponent ,canActivate : [LoginRegisterGuardService]},
    { path: 'register', component : RegisterComponent, canActivate : [LoginRegisterGuardService]},
-  { path: 'notFound', component : PageNotFoundComponent},
+  { path: 'not-found', component : PageNotFoundComponent},
   { path: 'Address/view-address', component : DisplayAddressComponent,
   canActivate : [RetailerSalesGuardService]},
   { path: 'Address/view-edit-address/:addressId', component : AddAddressComponent,  canActivate : [RetailerSalesGuardService]},

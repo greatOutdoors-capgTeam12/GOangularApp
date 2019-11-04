@@ -28,7 +28,7 @@ export class ProductServiceModule {
   getProducts(): Observable<Product[]> {
 
 
-    return this.httpClient.get<Product[]>('http://localhost:9090/go/rest/products/lists').pipe(catchError(err => this.handleError));
+    return this.httpClient.get<Product[]>('http://localhost:9090/capgemini.go/Products/list').pipe(catchError(err => this.handleError));
 
 
   }
@@ -37,13 +37,12 @@ export class ProductServiceModule {
     if (prodcat === 0) {
       /*const prodObs = of(this.productList);
       return prodObs;*/
-      let allProdlist = this.httpClient.get<Product[]>('http://localhost:9090/go/rest/products/lists');
-      allProdlist.pipe(catchError((err: any) => { return this.handleError(err) }));
+      let allProdlist = this.httpClient.get<Product[]>('http://localhost:9090/capgemini.go/Products/list');
       return allProdlist;
 
     }
     let prodFlObs :any;
-    let allProdlist = this.httpClient.get<Product[]>('http://localhost:9090/go/rest/products/lists');
+    let allProdlist = this.httpClient.get<Product[]>('http://localhost:9090/capgemini.go/Products/list');
     prodFlObs = allProdlist.pipe(map((products:Product[])=>{
       const filteredProds = [];
       products.forEach(p=>{
@@ -85,7 +84,7 @@ export class ProductServiceModule {
       };
 
 
-      return this.httpClient.post("http://localhost:9090/go/AddProductServlet", {
+      return this.httpClient.post("http://localhost:9090/capgemini.go/Products/addProduct", {
         "prodid": product.prodid,
         "prodName": product.prodName,
         "prodBrand": product.prodBrand,
@@ -112,7 +111,7 @@ export class ProductServiceModule {
       };
 
 
-      return this.httpClient.post("http://localhost:9090/go/UpdateProductServlet", {
+      return this.httpClient.post("http://localhost:9090/capgemini.go/Products/editProduct", {
         "prodid": product.prodid,
         "prodName": product.prodName,
         "prodBrand": product.prodBrand,
@@ -131,14 +130,14 @@ export class ProductServiceModule {
 
   getProductById(): Observable<Product[]> {
 
-    return this.httpClient.get<Product[]>('http://localhost:9090/go/rest/products/lists');
+    return this.httpClient.get<Product[]>('http://localhost:9090/capgemini.go/Products/list');
 
   }
 
 
   getProductsById(prodId: String): Product {
 
-    this.httpClient.get<Product[]>('http://localhost:9090/go/rest/products/lists').subscribe(prodList => this._productsList = prodList as Product[]);
+    this.httpClient.get<Product[]>('http://localhost:9090/capgemini.go/Products/list').subscribe(prodList => this._productsList = prodList as Product[]);
     return this._productsList.find(p => p.prodid === prodId);
 
   }
@@ -154,7 +153,7 @@ export class ProductServiceModule {
         closeButton: true,
         progressBar: true,
       });
-    return this.httpClient.post("http://localhost:9090/go/DeleteProductServlet", {
+    return this.httpClient.post("http://localhost:9090/capgemini.go/Products/deleteProduct", {
       "prodid": prodid,
     })
   }

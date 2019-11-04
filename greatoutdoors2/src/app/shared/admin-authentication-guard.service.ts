@@ -31,7 +31,7 @@ export class AdminGuardService implements CanActivate
          } 
          else
          {
-             this._router.navigate(['/notFound']);
+             this._router.navigate(['/not-found']);
              return false;
          }
 

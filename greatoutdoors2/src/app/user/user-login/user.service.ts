@@ -25,7 +25,7 @@ export class UserLoginServiceModule {
         };
 
 
-        return this.httpClient.post("http://localhost:9090/go/UserLoginServlet", {
+        return this.httpClient.post("http://localhost:9090/capgemini.go/User/login", {
             "userId": existUser.userId,
             "password": existUser.userPassword,
         })
@@ -44,7 +44,7 @@ export class UserLoginServiceModule {
         };
 
 
-        return this.httpClient.post("http://localhost:9090/go/LogoutServlet", {
+        return this.httpClient.post("http://localhost:9090/capgemini.go/User/logout", {
             "userId": userId,
             
     });

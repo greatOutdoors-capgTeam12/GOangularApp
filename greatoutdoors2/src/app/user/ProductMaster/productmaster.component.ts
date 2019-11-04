@@ -47,7 +47,7 @@ export class ProductMasterComponent implements OnInit {
               progressBar: true,
             })
           this.prodMastRegForm.reset();
-          this._router.navigate(['/login']);
+          this._router.navigate([' ']);
         }
         else {
 

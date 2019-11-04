@@ -37,7 +37,7 @@ margin:0">
                 <span *ngIf='loggedUser && (user_role === 3 || user_role === 2)' class="fas fa-cart-plus" title="add to cart"></span>
                 <span class="fas fa-eye" (click)="viewProduct(product.prodid)" title="view"></span>
                 <span *ngIf='loggedUser && user_role === 4' class="fas fa-trash" title="delete" (click)="deleteProduct(product.prodid)"></span>
-                <span *ngIf='loggedUser && user_role === 4' class="fas fa-pen" title="edit" (click)="editProduct(product.prodid)"></span>
+                <span  *ngIf='loggedUser && user_role === 4' class="fas fa-pen" title="edit" (click)="editProduct(product.prodid)"></span>
             </div>
             <h3 class="pname">{{product.prodName}}</h3>
             <p class="price">&#8377; {{product.prodPrice}}</p>

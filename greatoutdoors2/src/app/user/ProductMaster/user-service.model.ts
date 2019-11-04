@@ -22,7 +22,7 @@ export class ProductMasterRegisterModule {
             })
         };
 
-            return this.httpClient.post("http://localhost:9090/go/AddProductMasterServlet", {
+            return this.httpClient.post("http://localhost:9090/capgemini.go/User/prodMastRegistration", {
             "userId": newUser.userId,
             "userName": newUser.userName,
             "userMail": newUser.userMail,
