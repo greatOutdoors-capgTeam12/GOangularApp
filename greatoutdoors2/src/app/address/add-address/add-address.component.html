@@ -1,0 +1,56 @@
+
+
+    <form (ngSubmit) = 'addtoaddress()' #addaddressform = "ngForm" class="goforms" id="add-address-form">
+        <div class="pannel-heading heading-green">
+            <div  class="text-center">
+              <h4>{{heading}}</h4>
+            </div>
+          </div>
+          <br>
+      <div class="pannel-body">
+
+          <div class="form-group" [class.has-error]="building_number.invalid && building_number.touched">
+              <label for="building_number">Building Number</label>
+              <input type="text" class="form-control" id="building_number" name="building_number" placeholder="Enter building number"
+                ngModel #building_number="ngModel" [(ngModel)]='addretaddress.building_number' required>
+              <span class="help-block" style="color:red" *ngIf="building_number.invalid && building_number.touched">Building number is required</span>
+            </div>
+  
+        <div class="form-group" [class.has-error]="city.invalid && city.touched">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" name="city" placeholder="Enter City"
+            ngModel #city="ngModel" [(ngModel)]='addretaddress.city' required>
+          <span class="help-block" style="color:red" *ngIf="city.invalid && city.touched">City is required</span>
+        </div>
+  
+        
+            
+        <div class="form-group" [class.has-error]="state.invalid && state.touched">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" name="state" placeholder="Enter State"
+              ngModel #state="ngModel" [(ngModel)]='addretaddress.state' required>
+            <span class="help-block" style="color:red" *ngIf="state.invalid && state.touched">State is required</span>
+          </div>
+
+          <div class="form-group" [class.has-error]="country.invalid && country.touched">
+              <label for="country">Country</label>
+              <input type="text" class="form-control" id="country" name="country" placeholder="Enter country"
+                ngModel #country="ngModel" [(ngModel)]='addretaddress.country' required>
+              <span class="help-block" style="color:red" *ngIf="country.invalid && country.touched">country is required</span>
+            </div>
+
+          <div class="form-group" [class.has-error]="zip.invalid && zip.touched">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip" name="zip" placeholder="Enter zip"
+              ngModel #zip="ngModel" [(ngModel)]='addretaddress.zip' required>
+            <span class="help-block" style="color:red" *ngIf="zip.invalid && zip.touched">zip is required</span>
+          </div>
+
+        <div class="pannel-footer bg-grey">
+          <button type="submit" class="btn btn-default " [disabled] = "addaddressform.invalid">{{submit}}</button>
+        </div>
+      </div>
+    </form>
+ 
+
+

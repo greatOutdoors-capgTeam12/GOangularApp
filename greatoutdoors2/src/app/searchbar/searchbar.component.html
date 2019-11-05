@@ -1,0 +1,7 @@
+<div class="searchnav">
+    <button class="btn btn-default btn-info" id="add-prod-btn" routerLink='/Product/createproduct'> <span class="fa fa-plus-square"></span> Add Product</button>
+    <button class="btn btn-default btn-info" id="add-filter-btn"><span class="fa fa-filter"></span> Filter Product</button>
+    <span  class = "fa fa-th view" title="small view" (click)='viewSmall()'></span>
+    <span class= "fa fa-th-large view"  title="large view" (click)='viewLarge()'></span>
+    <input type="text" placeholder="Search Product by name .." [(ngModel)] = "_searchTerm">
+  </div>

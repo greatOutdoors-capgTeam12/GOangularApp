@@ -1,0 +1,29 @@
+
+    <form (ngSubmit)='placeTheOrder()' #placeOrderform = "ngForm" class="goforms" id="place-Order-form">
+        <div class="pannel-heading heading-green">
+            <div  class="text-center">
+              <h4>Place Order</h4>
+            </div>
+          </div>
+          <br>
+      <div class="pannel-body">
+    
+        <div class="form-group" [class.has-error]="userId.invalid && userId.touched">
+          <label for="user-Id">User Id</label>
+          <input type="text" class="form-control" id="user-Id" name="userid" placeholder="Enter user Id"
+            ngModel #userId="ngModel" [(ngModel)]='placeOrder.userId' required>
+          <span class="help-block" style="color:red" *ngIf="userId.invalid && userId.touched">User Id is required</span>
+        </div>
+ 
+        <div class="form-group" [class.has-error]="addressId.invalid && addressId.touched">
+          <label for="address-Id">address Id</label>
+          <input type="text" class="form-control" id="address-Id" name="addressid" placeholder="Enter address Id"
+            ngModel #productid="ngModel" [(ngModel)]='placeOrder.addressId' required>
+          <span class="help-block" style="color:red" *ngIf="addressId.invalid && addressId.touched">address Id is required</span>
+        </div>
+  
+        <div class="pannel-footer bg-grey">
+          <button type="submit" class="btn btn-default " [disabled] = "placeOrderform.invalid">Buy Now</button>
+        </div>
+      </div>
+    </form>

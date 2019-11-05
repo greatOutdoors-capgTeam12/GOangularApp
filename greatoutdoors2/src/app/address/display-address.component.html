@@ -1,0 +1,30 @@
+<div class="container-fluid" >
+   <div class="row">
+        <button class= "btn btn-primary" routerLink="/Address/view-edit-address/0"> <span class="fas fa-plus"></span><h2 style="color:white">Add Address</h2></button>
+   </div>  
+    <div class = "row">
+        <div class = "col-5 address" *ngFor="let adrs of allAddress ">
+            <div class="pannel pannel-primary ">
+                <div class="pannel-heading heading-green" style="border-radius : 0">
+                    <h5 style="color:white">{{username}} : {{adrs.addressId}}</h5>
+                </div>
+                <div class = "pannel-body">
+                    <div class="row">
+                    <div class= "col-9">
+                            <p><b>Building No</b> : <i>{{adrs.building_number}} </i></p>
+                            <p><b>City</b> : <i>{{adrs.city}}</i> &nbsp; <b>State</b> : <i>{{adrs.state}}</i></p>
+                            <p><b>Country</b> : <i>{{adrs.country}}</i> &nbsp; <b>ZIP</b> : <i>{{adrs.zip}}</i></p>
+                    </div>
+                    <div class= "col-3 " style="border-radius:5px">
+                            <span  class="fas fa-trash" title="delete" (click) = 'deleteAddress(adrs.addressId)' style="color : red"></span>
+                            <span  class="fas fa-pen" title="edit" (click) = 'editAddress(adrs.addressId)' style="color: #336699" ></span>
+                        </div>
+                </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+</div>

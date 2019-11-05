@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "prodid" : "prod01",
+      "prodName" : "Wrist Watch",
+      "prodBrand" : "Rolex",
+      "prodSpec" : "Chronograph",
+      "prodDim" : "Round",
+      "prodQty" : 3,
+      "prodPrice" : 102500,
+      "prodColor" : "#339933",
+      "category": 5,
+      "isActive" : true,
+      "photoPath" : "assets/images/products/product.jpg"
+    },
+    {
+      "prodid" : "prod02",
+      "prodName" : "Shoe",
+      "prodBrand" : "Nike",
+      "prodSpec" : "Sports Shoe",
+      "prodDim" : "9 inch",
+      "prodQty" : 2,
+      "prodPrice" : 3000,
+      "prodColor" : "#db66bd",
+      "category": 4,
+      "isActive" : true,
+      "photoPath" : "assets/images/products/product2.jpg"
+
+    },
+    {
+      "prodid" : "prod03",
+      "prodName" : "Camp Bag",
+      "prodBrand" : "Wild Craft",
+      "prodSpec" : "Traveller Bag",
+      "prodDim" : "20L",
+      "prodQty" : 0,
+      "prodPrice" : 1500,
+      "prodColor" : "#ffccff",
+      "category": 1,
+      "isActive" : "true",
+      "photoPath" : "assets/images/products/product3.jpg"
+    }
+    
+  ]
+  
+}

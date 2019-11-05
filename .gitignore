@@ -1,0 +1,2 @@
+#putting node_modules in .gitignore
+greatoutdoors/node_modules/*

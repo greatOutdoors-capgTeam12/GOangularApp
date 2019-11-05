@@ -1,0 +1,34 @@
+
+<div class = "pannel pannel-primary">
+ <div class="pannel-heading  heading-green">
+<h3>{{product.prodName}}</h3></div>
+<div class="pannel-body">
+<div class="row">
+    <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5">
+            <img [src] = 'product.photoPath' alt="Product_Name" style="width:100%" height="400px">
+    </div>
+    <div class="col-sm-7 col-lg-7 col-md-7 col-xs-7">
+            
+            <p>{{product.prodBrand}} </p>
+            <p>Specification : {{product.prodSpec}}</p>
+            <p>Dimension : {{product.prodDim}}</p>
+            <p [ngSwitch]='product.category'>
+                Category :
+                 <span *ngSwitchCase = "1">Camping</span>
+                 <span *ngSwitchCase = "2">Golf</span>
+                 <span *ngSwitchCase = "3">Mountaneering</span>
+                 <span *ngSwitchCase = "4">Outdoors</span>
+                 <span *ngSwitchCase = "5">Personal</span>
+                </p>
+            <p *ngIf="product.prodQty > 0" style="color:green">In Stock</p>
+            <p *ngIf ="product.prodQty == 0" style="color:red">Out of Stock</p>
+            <p>Colour <span class="fas fa-palette" [ngStyle] = "{'color' : product.prodColor}"></span></p> 
+            <p class="price">&#8377; {{product.prodPrice}}</p>
+    </div>
+</div>
+</div>
+<div class ="pannel-footer">
+    <h6 style="color : white"> This product is sold from greatoutdoors website only</h6>
+    
+</div>
+</div>

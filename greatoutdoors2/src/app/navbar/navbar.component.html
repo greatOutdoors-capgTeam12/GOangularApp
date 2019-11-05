@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">GO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="fas fa-bars" style="color:white"></span>
+    </button>
+    <div id="navbarNavDropdown" class="navbar-collapse collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Product
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink='Product/allproducts' (click)="allProds()"><span class="fa fa-globe"></span> All Categories</a>
+                    <a class="dropdown-item" routerLink='Product/allproducts' (click)="camp()"><span class="fa fa-binoculars"></span> Camping</a>
+                    <a class="dropdown-item" routerLink='Product/allproducts' (click)="golf()"><span class="fas fa-golf-ball"></span> Golf</a>
+                    <a class="dropdown-item" routerLink='Product/allproducts' (click)="mount()"><span class="fas fa-hiking"></span> Mountaineering</a>
+                    <a class="dropdown-item" routerLink='Product/allproducts' (click)="outdoor()"><span class="fa fa-tree"></span> Outdoor</a>
+                    <a class="dropdown-item" routerLink='Product/allproducts' (click)="personal()"><span class="fa fa-child"></span> Personal</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Contact">Contact</a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a *ngIf='loggedUser' tab-index="-1" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fa fa-user"></span>Hi! &nbsp; {{username}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="/profile">
+                        <span class="fa fa-user"> &nbsp;</span>Profile</a>
+                    <a *ngIf='user_role === 1' class="dropdown-item" routerLink="/Admin/createproductmaster">
+                        <span class="fa fa-user-plus"> &nbsp;</span>Add Product Master</a>
+                    <a *ngIf='user_role === 2  || user_role === 3 ' class="dropdown-item" href="#" routerLink="/Order/place-order">
+                        <span class="fa fa-shopping-bag"> &nbsp;</span>Place Orders</a>
+                    <a *ngIf='user_role === 2  || user_role === 3 ' class="dropdown-item" href="#" routerLink="/Order/return-order">
+                        <span class="fas fa-undo"> &nbsp;</span>Return Order</a>
+                    <a *ngIf='user_role === 2  || user_role === 3 ' class="dropdown-item" href="#" routerLink="/Order/return-product">
+                        <span class="fas fa-undo"> &nbsp;</span>Return Product</a>
+                    <a *ngIf='user_role === 2  || user_role === 3 ' class="dropdown-item" href="#" routerLink="/Order/cancel-order">
+                        <span class="fas fa-times"> &nbsp;</span>Cancel Order</a>
+                    <a *ngIf='user_role === 2  || user_role === 3 ' class="dropdown-item" href="#" routerLink="/Order/cancel-product">
+                        <span class="fas fa-times"> &nbsp;</span>Cancel Product</a>
+                    <a *ngIf='user_role === 2 ||  user_role === 3' class="dropdown-item" href="#" routerLink="/Cart">
+                        <span class="fa fa-shopping-cart"> &nbsp;</span>Your Cart</a>
+                    <a *ngIf='user_role === 2 || user_role === 3 ' class="dropdown-item" routerLink="/Address/view-address" href="#">
+                        <span class="fa fa-address-book"> &nbsp;</span>Manage Address</a>
+                    <a *ngIf='user_role === 2 || user_role === 3 ' class="dropdown-item" routerLink="/Products/wishlist" href="#">
+                        <span class="fa fa-heart"> &nbsp;</span>Whishlist</a>
+                    <a *ngIf='user_role === 1' class="dropdown-item" routerLink="/reports">
+                        <span class="fa fa-chart-bar"> &nbsp;</span>Reports</a>
+                </div>
+            </li>
+            <li *ngIf='!loggedUser' class="nav-item">
+                <a class="nav-link" href="#" routerLink='/login'><span
+                        class="fa fa-hourglass" ></span> Login</a>
+            </li>
+            <li *ngIf='loggedUser' class="nav-item">
+                <a class="nav-link" href="#" (click)='logout()'><span
+                        class="fa fa-power-off"  ></span> Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

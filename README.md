@@ -8,6 +8,8 @@
  // Use this command when you are in the project root directory. By default, the app is hosted on localhost:4200
  ng serve               ->  to serve the app on localhost:4200
 
+ // Use this command to install jquerry; (problems with '$')
+ npm i @types/jquery
 ### configure bootstrap
  npm install bootstrap jquery --save
 

@@ -1,0 +1,77 @@
+<div style="padding: 5%;">
+    <div class="row">
+        <div class="col card border-secondary">
+            <h3 class="card-header">Growth Revenue Report</h3>
+            <form class="card-body" [formGroup]="growthReportForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-row">
+
+                    <div class="col" style="min-width: 200px;">
+
+                        <label for="reportType">Growth Type</label>
+                        <select class="form-control" formControlName="reportType" required>
+                                <option *ngFor="let reportType of reportTypeList" [value]="reportType.value">{{reportType.viewValue}}</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="start-date">Start Date</label>
+                        <input type="date" min="2019-01-01" max="2019-12-30" class="form-control text-center" formControlName="startDate" required>
+                    </div>
+                    <div class="col">
+                        <label for="end-date">End Date</label>
+                        <input type="date" min="2019-01-01" max="2019-12-30" class="form-control text-center" formControlName="endDate" required>
+                    </div>
+                </div>
+                <div class="form-row" style="padding-top: 1%; padding-bottom: 1%;">
+                    <div class="col">
+                        <button class="btn btn-sm btn-info btn-block" type="submit" [disabled]="!growthReportForm.valid">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- End of Card -->
+
+    <!-- Delivery Time Report Table -->
+    <div class="row" style="padding-top: 2%;">
+        <div class="col card border-secondary">
+            <div class="table-responsive">
+                <table class="table table-hover" style="margin-bottom: 0%;">
+                    <thead>
+                        <tr>
+                            <th scope="col"> Period </th>
+                            <!-- Either Month,Quarter,Year -->
+                            <th scope="col"> Revenue </th>
+                            <!-- Revenue for that period -->
+                            <th scope="col"> Amount Change </th>
+                            <!-- Amount change between curent revenue and previous revenue -->
+                            <th scope="col"> Percentage Growth </th>
+                            <!-- percentage growth -->
+                            <th scope="col"> Color Code </th>
+                            <!-- Color Code according to Growth -->
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tableItem of tableItems ; let i = index" [attr.data-index]="i">
+                            <td *ngIf="i%2 == 0" style="background-color: rgb(238, 232, 232);">{{tableItem.period}}</td>
+                            <td *ngIf="!(i%2 == 0)" style="background-color: rgb(178, 235, 186);">{{tableItem.period}}</td>
+                            <td *ngIf="i%2 == 0" style="background-color: rgb(238, 232, 232);">{{tableItem.revenue}}</td>
+                            <td *ngIf="!(i%2 == 0)" style="background-color: rgb(178, 235, 186);">{{tableItem.revenue}}</td>
+                            <td *ngIf="i%2 == 0" style="background-color: rgb(238, 232, 232);">{{tableItem.amountChange}}</td>
+                            <td *ngIf="!(i%2 == 0)" style="background-color: rgb(178, 235, 186);">{{tableItem.amountChange}}</td>
+                            <td *ngIf="i%2 == 0" style="background-color: rgb(238, 232, 232);">{{tableItem.percentageGrowth}}</td>
+                            <td *ngIf="!(i%2 == 0)" style="background-color: rgb(178, 235, 186);">{{tableItem.percentageGrowth}}</td>
+                            <td *ngIf="i%2 == 0" style="background-color: rgb(238, 232, 232);">{{tableItem.colorCode}}</td>
+                            <td *ngIf="!(i%2 == 0)" style="background-color: rgb(178, 235, 186);">{{tableItem.colorCode}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Container -->

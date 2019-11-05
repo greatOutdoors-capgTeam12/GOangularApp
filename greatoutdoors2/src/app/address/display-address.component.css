@@ -1,0 +1,57 @@
+.address 
+{
+    margin:2% 0%;
+    width: 100%;
+
+}
+
+.container-fluid
+{
+    margin: 5% 10%;
+}
+
+.pannel
+{
+    border: solid;
+    border-color : #3c5343;
+    border-radius: 5px;
+}
+
+.pannel-body 
+{
+    margin:2%;
+    width : 90%;
+    
+}
+.address .fas
+{
+    margin : 5% 5%;
+    font-size : 20px;
+}
+
+.address .fas:hover
+{
+    font-size:25px;
+}
+
+.btn
+{
+    float:right;
+    width : 400px;
+    text-align : center;
+    background-color : #336699;
+    color:white;
+    
+}
+
+.btn .h2
+{
+    color:white;
+}
+
+.btn:hover
+{
+    background-color : #052b69;
+    color:white;
+}
+

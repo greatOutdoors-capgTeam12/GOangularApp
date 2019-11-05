@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Great Outdoors</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
+</head>
+
+<body>
+    <!-- Add component here -->
+    <!-- NavBar Section -->
+    <app-navbar></app-navbar>
+    <!-- End of NavBar Section -->
+
+
+
+
+    <div *ngIf="showLoadingIndicator" id="overlay"></div>
+    
+    <div *ngIf="showLoadingIndicator" class="lds-grid" >
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+   
+
+   
+
+    <router-outlet></router-outlet>
+
+
+
+
+    <!-- Footer Section -->
+    <app-footer></app-footer>
+    <!-- End of Footer Section -->
+    <!-- login form-->
+
+    <!-- End of login form-->
+
+    <!-- End of Add component here -->
+
+
+</body>
+
+</html>
