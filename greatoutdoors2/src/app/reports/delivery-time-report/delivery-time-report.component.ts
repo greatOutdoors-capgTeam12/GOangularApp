@@ -32,7 +32,7 @@ export class DeliveryTimeReportComponent implements OnInit {
   ];
 
   // This will be loaded with all registered retailer ids who have atleast 1 order
-  public retailerIdList: string [] = ['RT01', 'RT02', 'RT03'];
+  public retailerIdList: any [];
   
   //pcn: string = null, pn: string = null, puin: string = null, pdtp: string = null
   tableItems: DeliveryTimeReportTableItem [] = [];
@@ -97,10 +97,10 @@ export class DeliveryTimeReportComponent implements OnInit {
     if (!(subscribeDataObject == null)) {
       subscribeDataObject.forEach(element => {
         let newTableItem = new DeliveryTimeReportTableItem(
-          element["productCategory"],
+          element["productCategoryName"],
           element["retailerUserId"],
-          element["productUIN"],
-          element["productDeliveryTimePeriod"]);
+          element["productUniqueId"],
+          element["deliveryTimePeriod"]);
           this.tableItems.push(newTableItem);
       });
     }
@@ -122,7 +122,7 @@ export class DeliveryTimeReportComponent implements OnInit {
   public extractPrefetchDataResponse (subscribeDataObject:any) {
     if (!(subscribeDataObject == null)) {
       subscribeDataObject.forEach(element => {
-        this.retailerIdList.push(element["retailerId"]);
+        this.retailerIdList.push({retailerId:element["retailerId"], retailerName:element["retailerName"]});
       });
     }
   }

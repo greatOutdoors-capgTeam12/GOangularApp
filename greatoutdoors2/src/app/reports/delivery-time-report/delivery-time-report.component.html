@@ -6,9 +6,9 @@
             <form class="card-body" [formGroup]="deliveryTimeReportForm" (ngSubmit)="onSubmit()">
                 <div class="form-row">
                     <div class="col" style="min-width: 200px;">
-                        <label for="retailerId">Retailer ID</label>
+                        <label for="retailerId">Retailer Name</label>
                         <select class="form-control" formControlName="retailerId" required>
-                            <option *ngFor="let retailer of retailerIdList" [value]="retailer">{{retailer}}</option>
+                            <option *ngFor="let retailer of retailerIdList" [value]="retailer.retailerId">{{retailer.retailerName}}</option>
                         </select>
                     </div>
                     <div class="col" style="min-width: 200px;">
@@ -46,8 +46,6 @@
                         <tr>
                             <th scope="col"> Product Category </th>
                             <!-- Need to print the category string -->
-                            <th scope="col"> Product Name </th>
-                            <!-- Need to print by mathcing name and product id -->
                             <th scope="col"> Product UIN </th>
                             <!-- Need to print as is -->
                             <th scope="col"> Product Delivery Time Period </th>
@@ -57,7 +55,6 @@
                     <tbody>
                         <tr *ngFor="let tableItem of tableItems">
                             <td>{{tableItem.productCategoryName}}</td>
-                            <td>{{tableItem.productName}}</td>
                             <td>{{tableItem.productUIN}}</td>
                             <td>{{tableItem.productDeliveryTimePeriod}}</td>
                         </tr>

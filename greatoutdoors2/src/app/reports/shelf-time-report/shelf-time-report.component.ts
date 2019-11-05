@@ -26,7 +26,7 @@ export class ShelfTimeReportComponent implements OnInit {
   public responseJson: any;
   public responseError: any;
 
-  public retailerIdList: string []; // using some dummy data for now
+  public retailerIdList: any []; 
   // This will be loaded with all registered retailer ids who have atleast 1 order
 
   public reportTypeList = [
@@ -55,10 +55,10 @@ export class ShelfTimeReportComponent implements OnInit {
   public showEndDate: boolean = false;
   ngOnInit() {
     this.showStartDate = true;
-    this.showEndDate = true;
+    this.showEndDate = false;
     this.retailerIdList = [];
 
-    let url = "http://localhost:9090/go/rest/reports/deliveryTimeReport/loadRetailers";
+    let url = "http://localhost:9090/capgemini.go/RetailerInventory/RetailerList";
     let jsonObject:any = {
       "URL": url
     };
@@ -68,7 +68,7 @@ export class ShelfTimeReportComponent implements OnInit {
   async onSubmit() { 
     // clear table
     this.clearTable();
-    let url = "http://localhost:9090/go/rest/reports/shelfTimeReport";
+    let url = "http://localhost:9090/capgemini.go/RetailerInventory/ShelfTimeReport";
     let jsonObject:any = {
       "URL": url,
       "jsonFormData": {
@@ -89,10 +89,10 @@ export class ShelfTimeReportComponent implements OnInit {
     if (!(subscribeDataObject == null)) {
       subscribeDataObject.forEach(element => {
         let newTableItem = new ShelfTimeReportTableItem(
-          element["productCategory"],
+          element["productCategoryName"],
           element["retailerUserId"],
-          element["productUIN"],
-          element["productShelfTimePeriod"]);
+          element["productUniqueId"],
+          element["shelfTimePeriod"]);
           this.tableItems.push(newTableItem);
       });
     }
@@ -114,7 +114,7 @@ export class ShelfTimeReportComponent implements OnInit {
   public extractPrefetchDataResponse (subscribeDataObject:any) {
     if (!(subscribeDataObject == null)) {
       subscribeDataObject.forEach(element => {
-        this.retailerIdList.push(element["retailerUserId"]);
+        this.retailerIdList.push({retailerId:element["retailerId"], retailerName:element["retailerName"]});
       });
     }
   }
