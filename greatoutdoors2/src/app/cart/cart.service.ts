@@ -28,7 +28,7 @@ export class CartServiceModule {
             "addItemProdQty": addingItem.quantity.toString(),
         })
 
-        return this.httpClient.post("http://localhost:9090/capgemini.go/Orders/AddItemServlet", {
+        return this.httpClient.post("http://localhost:9090/capgemini.go/Cart/AddItem", {
             "addItemuserId": addingItem.userId,
             "addItemProdId": addingItem.productId,
             "addItemProdQty": addingItem.quantity.toString(),
